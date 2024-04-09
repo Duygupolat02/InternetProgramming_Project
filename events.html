@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Details</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Welcome to City Events</h1>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="events-list">
+        <h2>Events</h2>
+        <ul id="events-list">
+          <!-- Events will be dynamically added here -->
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 City Events. All rights reserved.</p>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("events.json")
+          .then((response) => response.json())
+          .then((data) => {
+            // eventsList, etkinlik listesini içeren bir HTML elemanının referansıdır
+            // eventsList, etkinlik listesini içeren bir HTML elemanının referansıdır
+            const eventsList = document.getElementById("events-list");
+
+            // data, etkinlik listesi verileridir
+            data.forEach((event) => {
+              // Her etkinlik için bir div öğesi oluştur
+              const eventDiv = document.createElement("div");
+              eventDiv.classList.add("event");
+
+              // Etkinlik başlığını oluştur
+              const eventName = document.createElement("h3");
+              eventName.textContent = event.name;
+              eventDiv.appendChild(eventName);
+
+              // Etkinlik tarihini oluştur
+              const eventDate = document.createElement("p");
+              eventDate.textContent = `Date: ${event.date}`;
+              eventDiv.appendChild(eventDate);
+
+              // Etkinlik yerini oluştur
+              const eventLocation = document.createElement("p");
+              eventLocation.textContent = `Location: ${event.location}`;
+              eventDiv.appendChild(eventLocation);
+
+              // Etkinlik açıklamasını oluştur
+              let desc = event.description;
+              if (desc.length > 50) {
+                desc = desc.substring(0, 50) + "...";
+              }
+              const eventDescription = document.createElement("p");
+              eventDescription.textContent = `Description: ${desc}`;
+              eventDiv.appendChild(eventDescription);
+
+              // Tıklama olayı ekleyerek ilgili etkinlik ayrıntılarının bulunduğu sayfaya yönlendir
+              eventDiv.addEventListener("click", () => {
+                window.location.href = `event_details.html?id=${event.id}`;
+              });
+
+              // Oluşturulan etkinlik div'ini etkinlik listesine ekle
+              eventsList.appendChild(eventDiv);
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching events:", error);
+          });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "date": "September 14 - November 17, 2024",
+    "time": "8:00 AM - 11:00 PM",
+    "location": "Beyoğlu, İstanbul",
+    "description": "İstanbul Biennial, Contemporary Art Festival, Delayed to 2025.",
+    "approved": true,
+    "participants": "Duygu"
+  },
+  {
+    "id": 2,
+    "date": "February 25 - May 22, 2024",
+    "time": "2:00 PM - 10:00 PM",
+    "location": "Saint Esprit Church, Harbiye, İstanbul",
+    "description": "Opus Amadeus Chamber Music Festival.",
+    "approved": true,
+    "participants": "İlkay"
+  },
+  {
+    "id": 3,
+    "date": "April 24 - April 27, 2024",
+    "time": "1:00 PM - 7:00 PM",
+    "location": "Tayf International Short Film Festival, İstanbul Nişantaşı University, İstanbul",
+    "description": "Tayf International Short Film Festival is a short film festival organized by Tayf Culture and Arts Association the aim of the festival is to encourage short film creators and to increase the visibility of short films, which are the building blocks of cinema art. The festival is open to international and national participants.",
+    "approved": false,
+    "participants": "Beril"
+  },
+  {
+    "id": 4,
+    "date": "May 21 - June 12, 2024",
+    "time": "7:00 PM - 11:00 PM",
+    "location": "International İstanbul Music Festival, Aya Irene Church, İstanbul",
+    "description": " An event organized by the Istanbul Foundation for Culture and Arts, that was held in classical music, classical ballet, contemporary dance, opera, traditional music, jazz, pop, cinema, theater and visual art genre..",
+    "approved": true,
+    "participants": "Beril"
+  },
+  {
+    "id": 5,
+    "date": "July 3 - July 18, 2024",
+    "time": "4:00 PM - 11:00 PM",
+    "location": "Istanbul Jazz Festival, İstanbul",
+    "description": "Istanbul Jazz Festival, offers a wide selection that includes a wide geography from Latin America to Northern Europe, where discoveries and classics stand together,.",
+    "approved": true,
+    "participants": "Alper"
+  },
+  {
+    "id": 6,
+    "date": "July 4 - July 20, 2024",
+    "time": "8:00 PM - 2:00 AM",
+    "location": "A Midsummer's Night Festival, Beykoz Kundura, İstanbul",
+    "description": "Inspired by the harmonious unity of film and music, the festival program invites art lovers in Istanbul to pleasant summer evenings in the open air by the Bosporus.",
+    "approved": false,
+    "participants": "İlkay"
+  },
+  {
+    "id": 7,
+    "date": "September 28 - October 6, 2024",
+    "time": "2:00 PM - 10:00 AM",
+    "location": "Beyoğlu Culture Road, Beyoğlu, İstanbul",
+    "description": " The city's buildings, streets, architecture, aesthetics, literature, theater, music, opera, gastronomy, education, painting and cinema, all these aim to carry cultural values to the future by preserving them in their past form and to revive Beyoğlu with its unique texture.",
+    "approved": false,
+    "participants": "Alper"
+  },
+  {
+    "id": 8,
+    "date": "May 7 - July 12, 2024",
+    "time": "2:00 PM - 4:00 AM",
+    "location": "Istanbul Metropolitan Municipality Harbiye Cemil Topuzlu Open Air Theater, Harbiye, İstanbul",
+    "description": " Harbiye Cemil Topuzlu Open Air Theater, which hosts jazz and music festivals, dance performances, concerts and theater plays of local and foreign big names, is one of the most important concert and event venues in Istanbul.",
+    "approved": false,
+    "participants": "Beril"
+  },
+  {
+    "id": 9,
+    "date": "December 8- December 25, 2024",
+    "time": "11:00 AM - 11:00 PM",
+    "location": "Christmas Markets, Çırağan Caddesi Beşiktaş, İstanbul",
+    "description": "Have the same enthusiasm you see in Europe.",
+    "approved": true,
+    "participants": "Duygu"
+  }
+]

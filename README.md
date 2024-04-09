@@ -53,3 +53,9 @@ Responsive Design: Responsive design techniques will be utilized to ensure the w
 
 
 Additional Features:
+
+An online registration form is available for users who want to participate in events.
+
+Storing user comments in the database and dynamically displaying comments on the event detail page.
+
+An event search feature allows users to search for events based on criteria such as date, location, and type of event

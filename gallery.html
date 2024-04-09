@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Gallery</h1>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="gallery" id="gallery">
+        <h2>Photos and Videos</h2>
+        <div class="gallery-items">
+          <!-- Gallery items will be dynamically added here -->
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 City Events. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("gallery.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const galleryItems = document.querySelector(".gallery-items");
+
+            data.forEach((item) => {
+              const galleryItem = document.createElement("div");
+              galleryItem.classList.add("gallery-item");
+
+              if (item.type === "image") {
+                const image = document.createElement("img");
+                image.src = item.source;
+                image.alt = item.alt;
+                image.height = "266";
+                galleryItem.appendChild(image);
+              } else if (item.type === "video") {
+                const video = document.createElement("iframe");
+                video.width = "560";
+                video.height = "315";
+                video.src = item.source;
+                video.frameBorder = "0";
+                video.allowFullscreen = true;
+                galleryItem.appendChild(video);
+              }
+
+              galleryItems.appendChild(galleryItem);
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching gallery items:", error);
+          });
+      });
+    </script>
+  </body>
+</html>

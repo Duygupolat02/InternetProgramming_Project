@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "type": "image",
+    "source": "galata.jpg",
+    "alt": "istanbul image"
+  },
+  {
+    "id": 4,
+    "type": "image",
+    "source": "https://media.stockimg.ai/image/PCds8cdrLyj9.png",
+    "alt": "istanbul image"
+  },
+  {
+    "id": 2,
+    "type": "video",
+    "source": "https://www.youtube.com/embed/YeVqmeHHCMI",
+    "alt": "a video"
+  },
+  {
+    "id": 3,
+    "type": "video",
+    "source": "https://www.youtube.com/embed/kcHczECVkjU",
+    "alt": "a video"
+  }
+]

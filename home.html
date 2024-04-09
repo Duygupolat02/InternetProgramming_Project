@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City Events</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to City Events</h1>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Featured Events</h2>
+      <section class="featured-events" id="featured-events-id">
+        <!-- Featured events content goes here -->
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 City Events. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function displayApprovedEvents() {
+        var featuredEventsContainer = document.getElementById("featured-events-id");
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+              var events = JSON.parse(xhr.responseText);
+              events.forEach(function (event) {
+                if (event.approved) {
+                  var eventElement = document.createElement("div");
+                  eventElement.classList.add("event");
+                  // Açıklamanın uzunluğunu kontrol edin ve gerektiğinde kırpın
+                  let desc =
+                    event.description.length > 50 ? event.description.substring(0, 50) + "..." : event.description;
+                  eventElement.innerHTML = `
+                    <h3>${event.date}</h3>
+                    <p>Date: ${event.date}</p>
+                    <p>Location: ${event.location}</p>
+                    <p>Description: ${desc}</p>
+                  `;
+
+                  // Tıklama olayı ekleyerek ilgili etkinlik ayrıntılarının bulunduğu sayfaya yönlendir
+                  eventElement.addEventListener("click", () => {
+                    window.location.href = `event_details.html?id=${event.id}`;
+                  });
+                  featuredEventsContainer.appendChild(eventElement);
+                }
+              });
+            } else {
+              console.error("Failed to fetch data from events.json");
+            }
+          }
+        };
+        xhr.open("GET", "events.json", true);
+        xhr.send();
+      }
+
+      // Sayfa yüklendiğinde onaylı etkinlikleri görüntüle
+      displayApprovedEvents();
+    </script>
+  </body>
+</html>

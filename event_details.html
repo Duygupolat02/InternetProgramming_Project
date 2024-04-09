@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Details</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Welcome to City Events</h1>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="event-details">
+        <h2>Event Details</h2>
+        <div class="event-info" id="event-info">
+          <!-- Event details will be dynamically added here -->
+        </div>
+        <a href="events.html" class="back-link">Back to Events</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 City Events. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventId = parseInt(urlParams.get("id"));
+
+        if (!eventId) {
+          console.error("Event ID not found in URL.");
+          return;
+        }
+
+        fetch("events.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const event = data.find((event) => event.id === eventId);
+
+            if (!event) {
+              console.error("Event not found with ID:", eventId);
+              return;
+            }
+
+            const eventInfo = document.getElementById("event-info");
+
+            const dateParagraph = document.createElement("p");
+            dateParagraph.innerHTML = `<strong>Date:</strong> ${event.date}`;
+            eventInfo.appendChild(dateParagraph);
+
+            const timeParagraph = document.createElement("p");
+            timeParagraph.innerHTML = `<strong>Time:</strong> ${event.time}`;
+            eventInfo.appendChild(timeParagraph);
+
+            const locationParagraph = document.createElement("p");
+            locationParagraph.innerHTML = `<strong>Location:</strong> ${event.location}`;
+            eventInfo.appendChild(locationParagraph);
+
+            const participantsParagraph = document.createElement("p");
+            participantsParagraph.innerHTML = `<strong>Participants:</strong> ${event.participants}`;
+            eventInfo.appendChild(participantsParagraph);
+
+            const descriptionParagraph = document.createElement("p");
+            descriptionParagraph.innerHTML = `<strong>Description:</strong> ${event.description}`;
+            eventInfo.appendChild(descriptionParagraph);
+          })
+          .catch((error) => {
+            console.error("Error fetching event details:", error);
+          });
+      });
+    </script>
+  </body>
+</html>
